@@ -1,0 +1,79 @@
+\documentclass{report}
+\usepackage{graphicx}
+\usepackage[brazil]{babel}
+\usepackage{mathtools, amssymb, amsthm, amsmath}
+\DeclareMathOperator{\sgn}{sgn}
+
+\title{Ciência de Dados - Desafio Matemática Determinantes}
+\author{Gabriel Marcondes dos Santos}
+\date{\today{}}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Exercício 01}
+Deduza a determinante $4\times4$ usando a fórmula: \\ $\det(A)=\sum\limits_{\sigma\in S_{n}} (\prod\limits_{i=1}^{n} (-1)^{\sgn(\sigma)} \cdot a_{i\sigma(i)})$ \\\\
+Resolução: \\\\
+1) Seja a matriz 4x4: \\
+$\det(A) = 
+\begin{vmatrix}
+a_{11} & a_{12} & a_{13} & a_{14} \\ 
+a_{21} & a_{22} & a_{23} & a_{24} \\ 
+a_{31} & a_{32} & a_{33} & a_{34} \\ 
+a_{41} & a_{42} & a_{43} & a_{44}
+\end{vmatrix}$ \\\\\\
+2) Sabendo que $S_{4}$ é a permutação de ``$1234$'', isto é, $P_{4}= 4!$, então há 24 elementos nesse conjunto, logo temos que S: 
+\begin{align*}
+  S_{4} = \{\,
+  & 1234, 1432, 1324, 1342, 1243, 1423, \\
+  & 2314, 2413, 2431, 2134, 2341, 2143, \\
+  & 3214, 3412, 3421, 3124, 3241, 3142, \\
+  & 4213, 4312, 4123, 4321, 4132, 4231\,\}\enspace. \\
+\end{align*}
+3) Resolvendo a determinante $4\times4$ pela fórmula dada: \\
+\begin{math}
+\det(A)=\sum\limits_{\sigma\in S_{4}} (\prod\limits_{i=1}^{4} (-1)^{\sgn(\sigma)} \cdot a_{i\sigma(i)}) = \prod\limits_{i=1}^{4} (-1)^{\sgn(1234)} \cdot a_{i1234(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(1432)} \cdot a_{i1432(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(1324)} \cdot a_{i1324(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(1342)} \cdot a_{i1342(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(1243)} \cdot a_{i1243(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(1423)} \cdot a_{i1423(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(2314)} \cdot a_{i2314(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(2413)} \cdot a_{i2413(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(2431)} \cdot a_{i2431(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(2134)} \cdot a_{i2134(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(2341)} \cdot a_{i2341(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(2143)} \cdot a_{i2143(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(3214)} \cdot a_{i3214(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(3412)} \cdot a_{i3412(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(3421)} \cdot a_{i3421(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(3124)} \cdot a_{i3124(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(3241)} \cdot a_{i3241(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(3142)} \cdot a_{i3142(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(4213)} \cdot a_{i4213(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(4312)} \cdot a_{i4312(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(4123)} \cdot a_{i4123(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(4321)} \cdot a_{i4321(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(4132)} \cdot a_{i4132(i)} + \prod\limits_{i=1}^{4} (-1)^{\sgn(4231)} \cdot a_{i4231(i)} \\\\\\
+\end{math} 
+4) Posto isso, vamos resolver o $\sgn(\sigma)$ para cada $\sigma$, a fim de calcularmos os produtórios dessa determinante: \\
+\begin{math}
+\sgn(1234)=0,\,\sgn(1432)=1,\,\sgn(1324)=1,\,\sgn(1342)=2,\,\sgn(1243)=1,\,\sgn(1423)=2,\,\sgn(2314)=2,\,\sgn(2413)=3,\,\sgn(2431)=2,\,\sgn(2134)=1,\,\sgn(2341)=3,\,\sgn(2143)=2,\,\sgn(3214)=1,\,\sgn(3412)=2,\,\sgn(3421)=3,\,\sgn(3124)=2,\,\sgn(3241)=2,\,\sgn(3142)=3,\,\sgn(4213)=2,\,\sgn(4312)=3,\,\sgn(4123)=3,\,\sgn(4321)=2,\,\sgn(4132)=2,\,\sgn(4231)=1 \\\\
+\end{math}
+5) Basta, agora, pegarmos as posições de cada $\sigma$ da permutação, da seguinte forma: \\
+\begin{math}
+1234(1)=1;\,1234(2)=2;\,1234(3)=3;\,1234(4)=4;\,1432(1)=1;\,1432(2)=4;\,1432(3)=3;\,1432(4)=2;\,1324(1)=1;\,1324(2)=3;\,1324(3)=2;\,1324(4)=4;\,1342(1)=1;\,1342(2)=3;\,1342(3)=4;\,1342(4)=2;\,1243(1)=1;\,1243(2)=2;\,1243(3)=4;\,1243(4)=3;\,1423(1)=1;\,1423(2)=4;\,1423(3)=2;\,1423(4)=3;\,2314(1)=2;\,2314(2)=3;\,2314(3)=1;\,2314(4)=4;\,2413(1)=2;\,2413(2)=4;\,2413(3)=1;\,2413(4)=3;\,2431(1)=2;\,2431(2)=4;\,2431(3)=3;\,2431(4)=1;\,2134(1)=2;\,2134(2)=1;\,2134(3)=3;\,2134(4)=4;\,2341(1)=2;\,2341(2)=3;\,2341(3)=4;\,2341(4)=1;\,2143(1)=2;\,2143(2)=1;\,2143(3)=4;\,2143(4)=3;\,3214(1)=3;\,3214(2)=2;\,3214(3)=1;\,3214(4)=4;\,3412(1)=3;\,3412(2)=4;\,3412(3)=1;\,3412(4)=2;\,3421(1)=3;\,3421(2)=4;\,3421(3)=2;\,3421(4)=1;\,3124(1)=3;\,3124(2)=1;\,3124(3)=2;\,3124(4)=4;\,3241(1)=3;\,3241(2)=2;\,3241(3)=4;\,3241(4)=1;\,3142(1)=3;\,3142(2)=1;\,3142(3)=4;\,3142(4)=2;\,4213(1)=4;\,4213(2)=2;\,4213(3)=1;\,4213(4)=3;\,4312(1)=4;4312(2)=3;4312(3)=1;4312(4)=2;\,4123(1)=4;\,4123(2)=1;\,4123(3)=2;\,4123(4)=3;\,4321(1)=4;\,4321(2)=3;\,4321(3)=2;\,4321(4)=1;\,4132(1)=4;\,4132(2)=1;\,4132(3)=3;\,4132(4)=2;\,4231(1)=4;\,4231(2)=2;\,4231(3)=3;\,4231(4)=1;\ \\\\
+\end{math}
+6) Por fim, utilizando esses resultados, podemos substituí-los no determinante $4\times4$ a ser resolvido: \\
+\begin{math}
+\det(A)=\prod\limits_{i=1}^{4} (-1)^{0} \cdot a_{i1234(i)} + \prod\limits_{i=1}^{4} (-1)^{1} \cdot a_{i1432(i)} + \prod\limits_{i=1}^{4} (-1)^{1} \cdot a_{i1324(i)} + \prod\limits_{i=1}^{4} (-1)^{2} \cdot a_{i1342(i)} + \prod\limits_{i=1}^{4} (-1)^{1} \cdot a_{i1243(i)} + \prod\limits_{i=1}^{4} (-1)^{2} \cdot a_{i1423(i)} + \prod\limits_{i=1}^{4} (-1)^{2} \cdot a_{i2314(i)} + \prod\limits_{i=1}^{4} (-1)^{3} \cdot a_{i2413(i)} + \prod\limits_{i=1}^{4} (-1)^{2} \cdot a_{i2431(i)} + \prod\limits_{i=1}^{4} (-1)^{1} \cdot a_{i2134(i)} + \prod\limits_{i=1}^{4} (-1)^{3} \cdot a_{i2341(i)} + \prod\limits_{i=1}^{4} (-1)^{2} \cdot a_{i2143(i)} + \prod\limits_{i=1}^{4} (-1)^{1} \cdot a_{i3214(i)} + \prod\limits_{i=1}^{4} (-1)^{2} \cdot a_{i3412(i)} + \prod\limits_{i=1}^{4} (-1)^{3} \cdot a_{i3421(i)} + \prod\limits_{i=1}^{4} (-1)^{2} \cdot a_{i3124(i)} + \prod\limits_{i=1}^{4} (-1)^{2} \cdot a_{i3241(i)} + \prod\limits_{i=1}^{4} (-1)^{3} \cdot a_{i3142(i)} + \prod\limits_{i=1}^{4} (-1)^{2} \cdot a_{i4213(i)} + \prod\limits_{i=1}^{4} (-1)^{3} \cdot a_{i4312(i)} + \prod\limits_{i=1}^{4} (-1)^{3} \cdot a_{i4123(i)} + \prod\limits_{i=1}^{4} (-1)^{2} \cdot a_{i4321(i)} + \prod\limits_{i=1}^{4} (-1)^{2} \cdot a_{i4132(i)} + \prod\limits_{i=1}^{4} (-1)^{1} \cdot a_{i4231(i)} \\\\
+\therefore \det(A)=a_{11} \cdot a_{22} \cdot a_{33} \cdot a_{44} - a_{11} \cdot a_{24} \cdot a_{33} \cdot a_{42} - a_{11} \cdot a_{23} \cdot a_{32} \cdot a_{44} + a_{11} \cdot a_{23} \cdot a_{34} \cdot a_{42} - a_{11} \cdot a_{22} \cdot a_{34} \cdot a_{43} + a_{11} \cdot a_{24} \cdot a_{32} \cdot a_{43} + a_{12} \cdot a_{23} \cdot a_{31} \cdot a_{44} - a_{12} \cdot a_{24} \cdot a_{31} \cdot a_{43} + a_{12} \cdot a_{24} \cdot a_{33} \cdot a_{41} - a_{12} \cdot a_{21} \cdot a_{33} \cdot a_{44} - a_{12} \cdot a_{23} \cdot a_{34} \cdot a_{41} + a_{12} \cdot a_{21} \cdot a_{34} \cdot a_{43} - a_{13} \cdot a_{22} \cdot a_{31} \cdot a_{44} + a_{13} \cdot a_{24} \cdot a_{31} \cdot a_{42} - a_{13} \cdot a_{24} \cdot a_{32} \cdot a_{41} + a_{13} \cdot a_{21} \cdot a_{32} \cdot a_{44} + a_{13} \cdot a_{22} \cdot a_{34} \cdot a_{41} - a_{13} \cdot a_{21} \cdot a_{34} \cdot a_{42} + a_{14} \cdot a_{22} \cdot a_{31} \cdot a_{43} - a_{14} \cdot a_{23} \cdot a_{31} \cdot a_{42} - a_{14} \cdot a_{21} \cdot a_{32} \cdot a_{43} + a_{14} \cdot a_{23} \cdot a_{32} \cdot a_{41} + a_{14} \cdot a_{21} \cdot a_{33} \cdot a_{42} - a_{14} \cdot a_{22} \cdot a_{33} \cdot a_{41}
+\end{math}
+
+\section{Exercício 02}
+Calcule o determinante, usando o que foi deduzido, de duas matrizes definidas pelo autor: \\
+\begin{align*}
+\det(A)=0 \\
+\det(A) \neq 0
+\end{align*} \\\\
+Resolução: \\\\
+1) $\det(A)=0$: \\\\
+$\det(A) = 
+\begin{vmatrix}
+1 & 1 & 1 & 1 \\ 
+0 & 0 & 0 & 0 \\ 
+1 & 1 & 1 & 1 \\ 
+1 & 1 & 1 & 1
+\end{vmatrix}\\\\
+\det(A)=0 - 0 - 0 + 0 - 0 + 0 + 0 - 0 + 0 - 0 - 0 + 0 - 0 + 0 - 0 + 0 + 0 - 0 + 0 - 0 - 0 + 0 + 0 - 0 = 0 $\\\\\\
+2) $\det(A) \neq 0$ \\\\
+$\det(A) = 
+\begin{vmatrix}
+0 & 0 & 0 & 1 \\ 
+1 & 0 & 0 & 0 \\ 
+0 & 1 & 0 & 0 \\ 
+0 & 0 & 1 & 1
+\end{vmatrix}\\\\ 
+\det(A)= 0 - 0 - 0 + 0 - 0 + 0 + 0 - 0 + 0 - 0 - 0 + 0 - 0 + 0 - 0 + 0 + 0 - 0 + 0 - 0 - 1 + 0 + 0 - 0 = -1
+$
+\end{document}
