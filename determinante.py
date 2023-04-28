@@ -24,7 +24,7 @@ view_matrix()
 def determinant(matrix):
     n = len(matrix)
     if n != len(matrix[0]):
-        print("The matrix must be square.")
+        print("\nThe matrix must be square.")
         return None
     else:
         det = 0
@@ -35,6 +35,6 @@ def determinant(matrix):
             det += (-1)**sum((perm[j] > perm[i]) for i in range(n) for j in range(i+1, n)) * diag
         return det
 
-print(f"\n det(A) = {determinant(matrix)}")
+print(f"\ndet(A) = {determinant(matrix)}")
 
 
